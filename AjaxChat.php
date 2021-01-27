@@ -3,7 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>Ajax、PHP、MySQLの連携</title>
+
+<title>chat</title>
+
 <link rel="stylesheet" href="">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 </head>
@@ -13,7 +15,11 @@
     <input type="text" id="n" name="n"><br>
     メッセージ<br>
     <textarea id="m" name="m" cols="30" rows="3"></textarea>
-    <button id="ajax">ボタン</button>
+
+    <button id="ajax">送信</button>
+    <button id="del">トークの削除</button><hr>
+
+    
 </header>
 <div id="result"></div>
 <script>
@@ -39,7 +45,8 @@ $(function(){
            $('#result').html(data);
           console.log('通信成功');
        })
-  }, 3000);
+
+  }, 1000);
 
  $('#ajax').on('click',function(){
 
@@ -65,6 +72,28 @@ $(function(){
 
   $('textarea').val("");
  }); //#ajax click end
+
+
+$('#del').on('click',function(){
+
+  $.ajax({
+   url:'./deletetb.php', //送信先
+   data:{}
+   })
+   // Ajax通信が成功した時
+   .done( function(data) {
+   console.log('通信成功');
+   console.log(data);
+   })
+   // Ajax通信が失敗した時
+   .fail( function(data) {
+   console.log('通信失敗');
+   console.log(data);
+   })
+
+  $('textarea').val("");
+ });
+
 
 }); //END
 </script>
