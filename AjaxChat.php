@@ -3,7 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
 <title>chat</title>
+
 <link rel="stylesheet" href="">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 </head>
@@ -13,8 +15,11 @@
     <input type="text" id="n" name="n"><br>
     メッセージ<br>
     <textarea id="m" name="m" cols="30" rows="3"></textarea>
+
     <button id="ajax">送信</button>
     <button id="del">トークの削除</button><hr>
+
+    
 </header>
 <div id="result"></div>
 <script>
@@ -40,6 +45,7 @@ $(function(){
            $('#result').html(data);
           console.log('通信成功');
        })
+
   }, 1000);
 
  $('#ajax').on('click',function(){
@@ -67,6 +73,7 @@ $(function(){
   $('textarea').val("");
  }); //#ajax click end
 
+
 $('#del').on('click',function(){
 
   $.ajax({
@@ -86,6 +93,8 @@ $('#del').on('click',function(){
 
   $('textarea').val("");
  });
+
+
 }); //END
 </script>
 
